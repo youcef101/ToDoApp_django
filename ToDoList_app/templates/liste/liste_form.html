@@ -1,0 +1,33 @@
+{% extends 'liste/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-todo-input-wrap">
+            <div class="main-todo-input fl-wrap">
+                <form action="" method="POST">
+                <div class="main-todo-input-item">
+                     
+                         {% csrf_token %}
+                         {% for item in form %}
+                        {{item}}
+                          {% endfor %}
+                       
+                    </div>
+                     <button class="add-items main-search-button">ADD</button>
+                      </form> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-todo-input-wrap">
+            <div class="main-todo-input fl-wrap todo-listing">
+                {% for item in activity %}
+                <ul id="list-items"><li>{{item.name}}</li></ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
